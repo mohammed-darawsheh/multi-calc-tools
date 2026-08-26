@@ -1,0 +1,708 @@
+{
+  "common": {
+    "siteName": "CalcTools",
+    "tagline": "Smart Online Calculators — Free, Fast & Privacy-Focused",
+    "home": "Home",
+    "tools": "Tools",
+    "about": "About",
+    "privacy": "Privacy Policy",
+    "contact": "Contact",
+    "language": "Language",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "share": "Share",
+    "copyLink": "Copy Link",
+    "copied": "Copied!",
+    "calculate": "Calculate",
+    "reset": "Reset",
+    "result": "Result",
+    "results": "Results & Details",
+    "faq": "Frequently Asked Questions",
+    "ads": "Sponsored",
+    "comingSoon": "Coming Soon",
+    "disclaimer": "Note: These results are estimates for informational purposes only. Please consult official sources for legal or medical advice.",
+    "footerText": "© 2026 CalcTools. All rights reserved.",
+    "download": "Download",
+    "copy": "Copy",
+    "error": "An error occurred",
+    "loading": "Loading..."
+  },
+  "categories": {
+    "health": "Health & Fitness",
+    "financial": "Financial & Business",
+    "dates": "Dates & Time",
+    "converters": "Unit Converters",
+    "text": "Text & Files",
+    "religious": "Religious"
+  },
+  "tools": {
+    "ageCalculator": {
+      "name": "Age Calculator",
+      "desc": "Calculate your exact age in years, months, days, weeks, and hours with next birthday countdown",
+      "ui": {
+        "birthDateLabel": "Birth Date",
+        "years": "Years",
+        "months": "Months",
+        "days": "Days",
+        "totalDays": "Total Days",
+        "totalMonths": "Total Months",
+        "totalWeeks": "Total Weeks",
+        "totalHours": "Total Hours",
+        "nextBirthday": "Next birthday in",
+        "dayOfWeek": "Born on a"
+      },
+      "faqs": [
+        {
+          "question": "How is age calculated exactly?",
+          "answer": "We compute the exact difference between your birth date and today, taking into account varying month lengths and leap years."
+        },
+        {
+          "question": "Is my data kept private?",
+          "answer": "Yes! All calculations run entirely in your browser. No dates or personal information are sent to any server."
+        }
+      ]
+    },
+    "bmiCalculator": {
+      "name": "BMI Calculator",
+      "desc": "Calculate your Body Mass Index (BMI) and find your healthy weight range",
+      "ui": {
+        "weight": "Weight",
+        "height": "Height",
+        "kg": "kg",
+        "cm": "cm",
+        "bmi": "Body Mass Index (BMI)",
+        "category": "Status",
+        "underweight": "Underweight",
+        "normal": "Normal Weight",
+        "overweight": "Overweight",
+        "obese": "Obese",
+        "idealRange": "Healthy weight range for your height",
+        "difference": "Difference to healthy weight"
+      },
+      "faqs": [
+        {
+          "question": "What is a normal BMI?",
+          "answer": "A normal BMI ranges from 18.5 to 24.9. Below 18.5 is underweight, 25-29.9 is overweight, and 30 or higher indicates obesity."
+        },
+        {
+          "question": "Does BMI apply to athletes?",
+          "answer": "BMI is a general guideline. Athletes with high muscle mass may show an elevated BMI despite low body fat."
+        }
+      ]
+    },
+    "idealWeight": {
+      "name": "Ideal Weight Calculator",
+      "desc": "Find your ideal body weight using 4 proven medical formulas",
+      "ui": {
+        "height": "Height (cm)",
+        "gender": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "devine": "Devine Formula",
+        "robinson": "Robinson Formula",
+        "miller": "Miller Formula",
+        "hamwi": "Hamwi Formula",
+        "average": "Average Ideal Weight",
+        "kg": "kg"
+      },
+      "faqs": [
+        {
+          "question": "Which formula is most widely used?",
+          "answer": "The Devine formula is the medical standard for clinical drug dosages, while the average gives a balanced benchmark."
+        }
+      ]
+    },
+    "dailyCalories": {
+      "name": "Daily Calorie Calculator (TDEE & BMR)",
+      "desc": "Calculate your daily calorie needs to maintain, lose, or gain weight",
+      "ui": {
+        "weight": "Weight (kg)",
+        "height": "Height (cm)",
+        "age": "Age (years)",
+        "gender": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "activity": "Activity Level",
+        "sedentary": "Sedentary (little or no exercise)",
+        "light": "Light (exercise 1-3 days/week)",
+        "moderate": "Moderate (exercise 3-5 days/week)",
+        "active": "Active (exercise 6-7 days/week)",
+        "veryActive": "Very Active (intense training twice/day)",
+        "bmr": "Basal Metabolic Rate (BMR)",
+        "tdee": "Total Daily Energy Expenditure (TDEE)",
+        "maintenance": "Maintain Current Weight",
+        "mildLoss": "Mild Weight Loss (-0.25 kg/week)",
+        "moderateLoss": "Weight Loss (-0.5 kg/week)",
+        "gains": "Weight Gain & Muscle Building",
+        "kcal": "kcal / day"
+      },
+      "faqs": [
+        {
+          "question": "What is the difference between BMR and TDEE?",
+          "answer": "BMR is the baseline calories needed for essential body functions at rest. TDEE includes daily movement and workouts."
+        }
+      ]
+    },
+    "dueDate": {
+      "name": "Pregnancy Due Date Calculator",
+      "desc": "Calculate your estimated due date, gestational age, and pregnancy trimesters",
+      "ui": {
+        "lmpDate": "First day of last menstrual period (LMP)",
+        "cycleLength": "Average cycle length (days)",
+        "days": "days",
+        "estimatedDueDate": "Estimated Due Date",
+        "conceivedDate": "Probable Conception Date",
+        "currentWeek": "You are currently in week",
+        "trimester": "Trimester",
+        "trimester1": "First Trimester (Weeks 1 - 12)",
+        "trimester2": "Second Trimester (Weeks 13 - 26)",
+        "trimester3": "Third Trimester (Weeks 27 - 40)",
+        "daysRemaining": "Days remaining until delivery"
+      },
+      "faqs": [
+        {
+          "question": "How is the due date computed?",
+          "answer": "We use Naegele's rule by adding 280 days (40 weeks) to the first day of your last period, adjusted for your cycle length."
+        }
+      ]
+    },
+    "ovulation": {
+      "name": "Ovulation & Fertility Calculator",
+      "desc": "Predict your most fertile days and ovulation date to increase chances of conception",
+      "ui": {
+        "lmpDate": "First day of last period",
+        "cycleLength": "Average cycle length (days)",
+        "ovulationDate": "Estimated Ovulation Day",
+        "fertileWindow": "Most Fertile Window",
+        "nextPeriod": "Next Expected Period",
+        "from": "From",
+        "to": "To"
+      },
+      "faqs": [
+        {
+          "question": "When does ovulation usually occur?",
+          "answer": "Ovulation typically occurs around 14 days before the start of the next cycle. The 5 days leading up to ovulation are peak fertility."
+        }
+      ]
+    },
+    "loanCalculator": {
+      "name": "Loan & Mortgage Calculator",
+      "desc": "Calculate monthly installments, total interest, and full amortization schedule",
+      "ui": {
+        "amount": "Loan Amount",
+        "rate": "Annual Interest Rate (%)",
+        "years": "Loan Term (years)",
+        "monthlyPayment": "Monthly Payment",
+        "totalPayment": "Total Payment",
+        "totalInterest": "Total Interest",
+        "schedule": "Amortization Schedule",
+        "month": "Month",
+        "payment": "Payment",
+        "principal": "Principal",
+        "interest": "Interest",
+        "balance": "Remaining Balance"
+      },
+      "faqs": [
+        {
+          "question": "How is the monthly payment calculated?",
+          "answer": "We use standard fixed-rate amortization formulas to compute equal monthly installments split across principal and interest."
+        }
+      ]
+    },
+    "zakatCalculator": {
+      "name": "Islamic Zakat Calculator",
+      "desc": "Calculate your Zakat on cash, gold, silver, and business inventory accurately",
+      "ui": {
+        "currency": "Currency",
+        "goldPrice": "Price per gram of 24K Gold",
+        "silverPrice": "Price per gram of Silver",
+        "cash": "Cash in hand & bank balances",
+        "goldGrams": "Weight of gold owned (grams)",
+        "silverGrams": "Weight of silver owned (grams)",
+        "business": "Value of business goods & merchandise",
+        "debts": "Debts & immediate liabilities to deduct",
+        "zakatDue": "Zakat Due (2.5%)",
+        "totalZakatable": "Total Zakatable Wealth",
+        "eligible": "Meets Nisab threshold?",
+        "yes": "Yes, Zakat is due",
+        "no": "Below Nisab threshold",
+        "nisabGold": "Nisab (Gold 85g)",
+        "nisabSilver": "Nisab (Silver 595g)"
+      },
+      "faqs": [
+        {
+          "question": "What is the Nisab threshold?",
+          "answer": "Nisab is the minimum threshold of wealth: the value of 85g of pure gold or 595g of pure silver held for one full lunar year."
+        },
+        {
+          "question": "What is the Zakat rate?",
+          "answer": "Zakat is 2.5% (one fortieth) of your total net zakatable assets above the Nisab."
+        }
+      ]
+    },
+    "bankInterest": {
+      "name": "Compound Interest Calculator",
+      "desc": "Calculate returns on deposits, savings, and investments with compound interest",
+      "ui": {
+        "principal": "Initial Deposit / Principal",
+        "rate": "Annual Interest Rate (%)",
+        "years": "Time Horizon (years)",
+        "frequency": "Compounding Frequency",
+        "monthly": "Monthly",
+        "quarterly": "Quarterly (every 3 months)",
+        "yearly": "Annually",
+        "totalAmount": "Total Balance",
+        "totalInterest": "Total Interest Earned",
+        "effectiveRate": "Annual Percentage Yield (APY)",
+        "breakdown": "Yearly Growth Breakdown",
+        "year": "Year",
+        "interestEarned": "Interest Earned",
+        "endBalance": "Year-End Balance"
+      },
+      "faqs": [
+        {
+          "question": "How does compounding work?",
+          "answer": "Compound interest earns interest on both your initial deposit and previously accumulated interest, accelerating returns over time."
+        }
+      ]
+    },
+    "discountCalculator": {
+      "name": "Discount & Sale Calculator",
+      "desc": "Calculate the final discounted price and exact money saved on any purchase",
+      "ui": {
+        "originalPrice": "Original Price",
+        "discountPercent": "Discount Percentage (%)",
+        "finalPrice": "Final Price After Discount",
+        "savings": "Total Savings",
+        "currency": "USD / SAR / EGP"
+      },
+      "faqs": [
+        {
+          "question": "How is the discount calculated?",
+          "answer": "Multiply the original price by the discount percentage divided by 100 to get savings, then subtract from original price."
+        }
+      ]
+    },
+    "gpaCalculator": {
+      "name": "GPA Calculator (4.0 & 5.0 Scale)",
+      "desc": "Calculate your semester and cumulative GPA on 4.0 or 5.0 scales",
+      "ui": {
+        "scale": "Grading Scale",
+        "scale4": "4.0 Scale (Standard US / International)",
+        "scale5": "5.0 Scale (Gulf / Saudi Universities)",
+        "addCourse": "+ Add Course",
+        "courseName": "Course Name (Optional)",
+        "grade": "Grade / Letter",
+        "credits": "Credit Hours",
+        "remove": "Remove",
+        "gpa": "Calculated GPA",
+        "totalCredits": "Total Credit Hours",
+        "totalPoints": "Total Quality Points"
+      },
+      "faqs": [
+        {
+          "question": "How is GPA computed?",
+          "answer": "Each grade point is multiplied by course credit hours to get quality points. Total points are divided by total credits."
+        }
+      ]
+    },
+    "salaryTax": {
+      "name": "Salary Tax & Net Pay Calculator",
+      "desc": "Calculate net take-home salary after income tax and social security across countries",
+      "ui": {
+        "country": "Country",
+        "salaryType": "Salary Period",
+        "monthly": "Monthly Salary",
+        "annual": "Annual Salary",
+        "gross": "Gross Salary",
+        "net": "Net Take-Home Pay",
+        "tax": "Income Tax",
+        "socialSecurity": "Social Security / Insurance",
+        "effectiveRate": "Total Effective Deduction Rate",
+        "brackets": "Tax Brackets Breakdown",
+        "bracket": "Bracket",
+        "rate": "Rate",
+        "bracketTax": "Tax",
+        "notes": "Country Notes"
+      },
+      "faqs": [
+        {
+          "question": "Are tax rates up to date?",
+          "answer": "Yes, we implement current statutory tax brackets and personal exemptions for each listed country."
+        }
+      ]
+    },
+    "currencyConverter": {
+      "name": "Live Currency Converter",
+      "desc": "Convert between world currencies with live real-time foreign exchange rates",
+      "ui": {
+        "amount": "Amount",
+        "from": "From Currency",
+        "to": "To Currency",
+        "rate": "Live Exchange Rate",
+        "lastUpdated": "Live Rate",
+        "loading": "Updating live exchange rates..."
+      },
+      "faqs": [
+        {
+          "question": "How often are rates updated?",
+          "answer": "Rates are fetched live from global forex data feeds on demand."
+        }
+      ]
+    },
+    "dateDifference": {
+      "name": "Date Difference Calculator",
+      "desc": "Calculate exact time between two dates in years, months, weeks, days, and hours",
+      "ui": {
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "years": "Years",
+        "months": "Months",
+        "days": "Days",
+        "totalDays": "Total Days",
+        "totalWeeks": "Total Weeks",
+        "totalMonths": "Total Months",
+        "totalHours": "Total Hours"
+      },
+      "faqs": [
+        {
+          "question": "Does it account for leap years?",
+          "answer": "Yes, leap years and specific month day counts are calculated accurately."
+        }
+      ]
+    },
+    "countdown": {
+      "name": "Live Event Countdown Timer",
+      "desc": "Live real-time ticking countdown in days, hours, minutes, and seconds to any event",
+      "ui": {
+        "targetDate": "Target Event Date & Time",
+        "timeRemaining": "Time Remaining",
+        "eventPassed": "This event has already arrived or passed!",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds"
+      },
+      "faqs": [
+        {
+          "question": "Does the countdown tick in real time?",
+          "answer": "Yes, it updates every second directly in your browser without refreshing the page."
+        }
+      ]
+    },
+    "iddahCalculator": {
+      "name": "Islamic Iddah Calculator",
+      "desc": "Calculate the waiting period for divorced, widowed, or pregnant women per Islamic law",
+      "ui": {
+        "type": "Circumstance",
+        "death": "Death of Husband (4 Months & 10 Days)",
+        "revocable": "Divorce (3 Menstrual Cycles / approx. 3 Months)",
+        "pregnant": "Pregnant (Ends with Childbirth)",
+        "startDate": "Date of Event (Death / Divorce)",
+        "endDate": "Estimated Iddah Completion Date",
+        "duration": "Estimated Duration",
+        "rulesTitle": "Islamic Ruling & Guidelines",
+        "pregnantNote": "For pregnant women (whether widowed or divorced), the Iddah ends immediately upon delivery, according to the Quran: 'And for those who are pregnant, their term is until they give birth.'",
+        "deathRule": "The waiting period for a non-pregnant widow is four lunar months and ten days (~130 days), as ordained in Surah Al-Baqarah (2:234).",
+        "divorceRule": "The waiting period for a divorced menstruating woman is three complete menstrual cycles (~90 days)."
+      },
+      "faqs": [
+        {
+          "question": "When does a pregnant woman's Iddah end?",
+          "answer": "According to Islamic consensus, a pregnant woman's Iddah ends upon delivery regardless of whether she was divorced or widowed."
+        }
+      ]
+    },
+    "hijriConverter": {
+      "name": "Hijri & Gregorian Date Converter",
+      "desc": "Convert between the Islamic lunar Hijri calendar and the solar Gregorian calendar",
+      "ui": {
+        "toHijri": "Gregorian → Hijri",
+        "toGreg": "Hijri → Gregorian",
+        "gregDate": "Gregorian Date",
+        "hijriDay": "Hijri Day",
+        "hijriMonth": "Hijri Month",
+        "hijriYear": "Hijri Year",
+        "resultHijri": "Corresponding Hijri Date",
+        "resultGreg": "Corresponding Gregorian Date"
+      },
+      "faqs": [
+        {
+          "question": "How accurate is the Hijri conversion?",
+          "answer": "It is based on astronomical Umm al-Qura calculations and may differ by ±1 day depending on local moon sighting."
+        }
+      ]
+    },
+    "weightConverter": {
+      "name": "Weight & Mass Unit Converter",
+      "desc": "Convert between kilograms, grams, pounds, ounces, milligrams, and tons",
+      "ui": {
+        "value": "Weight / Mass",
+        "from": "From Unit",
+        "to": "To Unit",
+        "result": "Converted Result",
+        "kg": "Kilogram (kg)",
+        "g": "Gram (g)",
+        "mg": "Milligram (mg)",
+        "lb": "Pound (lb)",
+        "oz": "Ounce (oz)",
+        "stone": "Stone",
+        "ton": "Metric Ton (t)"
+      },
+      "faqs": [
+        {
+          "question": "How many grams are in a pound?",
+          "answer": "One international pound (lb) is equal to 453.59237 grams."
+        }
+      ]
+    },
+    "lengthConverter": {
+      "name": "Length & Distance Converter",
+      "desc": "Convert between meters, centimeters, feet, inches, yards, miles, and cubits",
+      "ui": {
+        "value": "Length / Distance",
+        "from": "From Unit",
+        "to": "To Unit",
+        "result": "Converted Result",
+        "m": "Meter (m)",
+        "cm": "Centimeter (cm)",
+        "mm": "Millimeter (mm)",
+        "km": "Kilometer (km)",
+        "in": "Inch (in)",
+        "ft": "Foot (ft)",
+        "yd": "Yard (yd)",
+        "mi": "Mile (mi)",
+        "arm": "Arabic Cubit (Arm = 0.58m)"
+      },
+      "faqs": [
+        {
+          "question": "How many centimeters in a foot and inch?",
+          "answer": "One foot is 30.48 cm, and one inch is 2.54 cm exactly."
+        }
+      ]
+    },
+    "temperatureConverter": {
+      "name": "Temperature Converter",
+      "desc": "Convert between Celsius (°C), Fahrenheit (°F), and Kelvin (K)",
+      "ui": {
+        "value": "Temperature",
+        "from": "From Unit",
+        "to": "To Unit",
+        "result": "Converted Result",
+        "c": "Celsius (°C)",
+        "f": "Fahrenheit (°F)",
+        "k": "Kelvin (K)"
+      },
+      "faqs": [
+        {
+          "question": "What is the formula from Celsius to Fahrenheit?",
+          "answer": "°F = (°C × 1.8) + 32."
+        }
+      ]
+    },
+    "areaConverter": {
+      "name": "Area & Land Unit Converter",
+      "desc": "Convert between square meters, hectares, acres, Feddan, Dunum, Qirat, and Sahm",
+      "ui": {
+        "value": "Area",
+        "from": "From Unit",
+        "to": "To Unit",
+        "result": "Converted Result",
+        "m2": "Square Meter (m²)",
+        "km2": "Square Kilometer (km²)",
+        "ft2": "Square Foot (ft²)",
+        "yd2": "Square Yard (yd²)",
+        "acre": "Acre (4,046.86 m²)",
+        "hectare": "Hectare (10,000 m²)",
+        "feddan": "Egyptian Feddan (4,200.83 m²)",
+        "dunum": "Levant Dunum (1,000 m²)",
+        "qirat": "Qirat (175 m²)",
+        "sahm": "Sahm (7.29 m²)"
+      },
+      "faqs": [
+        {
+          "question": "How large is a Feddan and Dunum?",
+          "answer": "An Egyptian Feddan is 4,200.83 m² (24 Qirats), and a standard Levant Dunum is 1,000 m²."
+        }
+      ]
+    },
+    "wordCounter": {
+      "name": "Word & Character Counter",
+      "desc": "Count words, characters, sentences, paragraphs, and estimate reading/speaking times",
+      "ui": {
+        "placeholder": "Type or paste your text here for instant analysis...",
+        "words": "Words",
+        "chars": "Total Characters",
+        "charsNoSpaces": "Characters (no spaces)",
+        "sentences": "Sentences",
+        "paragraphs": "Paragraphs",
+        "readingTime": "Est. Reading Time",
+        "speakingTime": "Est. Speaking Time",
+        "lessThanMinute": "Less than a minute",
+        "min": "min",
+        "sec": "sec"
+      },
+      "faqs": [
+        {
+          "question": "How is reading time calculated?",
+          "answer": "Based on an average adult silent reading speed of 200 words per minute and 150 words per minute for speaking."
+        }
+      ]
+    },
+    "passwordGenerator": {
+      "name": "Strong Password Generator",
+      "desc": "Generate secure, random, high-entropy passwords instantly in your browser",
+      "ui": {
+        "length": "Password Length",
+        "uppercase": "Uppercase Letters (A-Z)",
+        "lowercase": "Lowercase Letters (a-z)",
+        "numbers": "Numbers (0-9)",
+        "symbols": "Symbols (!@#$...)",
+        "excludeAmbiguous": "Exclude ambiguous characters (il1Lo0O)",
+        "generate": "Generate New Password",
+        "copy": "Copy Password",
+        "copied": "Copied to clipboard!",
+        "strength": "Security Strength",
+        "entropy": "Entropy",
+        "weak": "Weak",
+        "medium": "Medium",
+        "strong": "Strong",
+        "veryStrong": "Very Strong"
+      },
+      "faqs": [
+        {
+          "question": "Are passwords stored or transmitted?",
+          "answer": "No. Passwords are generated strictly on your device using cryptographic client-side random number generators."
+        }
+      ]
+    },
+    "imageCompressor": {
+      "name": "Online Image Compressor",
+      "desc": "Compress and reduce JPG, PNG, and WebP image sizes client-side with instant download",
+      "ui": {
+        "dropzoneTitle": "Drag & drop an image here or click to browse",
+        "dropzoneSubtitle": "Supports JPG, PNG, WebP (100% processed securely in your browser)",
+        "quality": "Compression Quality",
+        "originalSize": "Original Size",
+        "compressedSize": "Compressed Size",
+        "savedRatio": "Size Reduced By",
+        "download": "Download Compressed Image",
+        "compressing": "Compressing image...",
+        "selectNew": "Choose Another Image"
+      },
+      "faqs": [
+        {
+          "question": "Is my image uploaded to any server?",
+          "answer": "No. Compression occurs locally using HTML5 Canvas API in your browser. Your images never leave your computer."
+        }
+      ]
+    },
+    "prayerTimes": {
+      "name": "Daily Prayer Times",
+      "desc": "Find accurate prayer times (Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha) for any city",
+      "ui": {
+        "city": "City",
+        "cityPlaceholder": "e.g. Mecca, Riyadh, Cairo, London, New York...",
+        "country": "Country",
+        "date": "Date (optional, defaults to today)",
+        "getTimes": "Get Prayer Times",
+        "loading": "Fetching prayer times...",
+        "error": "Failed to fetch prayer times. Please verify the city name and try again.",
+        "fajr": "Fajr",
+        "sunrise": "Sunrise",
+        "dhuhr": "Dhuhr",
+        "asr": "Asr",
+        "maghrib": "Maghrib",
+        "isha": "Isha"
+      },
+      "faqs": [
+        {
+          "question": "Which calculation method is used?",
+          "answer": "Calculation uses recognized astronomical authorities and Umm al-Qura standards."
+        }
+      ]
+    },
+    "qiblaDirection": {
+      "name": "Qibla Direction & Compass",
+      "desc": "Find the exact direction of the Kaaba in Mecca from anywhere in the world",
+      "ui": {
+        "useLocation": "📍 Use My GPS Location",
+        "detecting": "Detecting your location...",
+        "geoError": "Could not access location. Please enter coordinates manually.",
+        "lat": "Latitude",
+        "lng": "Longitude",
+        "calculate": "Calculate Direction",
+        "direction": "Qibla Bearing",
+        "instruction": "The colored compass needle points towards the Kaaba in Mecca relative to North.",
+        "n": "North",
+        "s": "South",
+        "e": "East",
+        "w": "West",
+        "ne": "North East",
+        "se": "South East",
+        "sw": "South West",
+        "nw": "North West"
+      },
+      "faqs": [
+        {
+          "question": "How is the Qibla bearing calculated?",
+          "answer": "We compute the great circle forward azimuth between your geographic coordinates and the Kaaba (21.4225°N, 39.8262°E)."
+        }
+      ]
+    },
+    "fastingMakeupDays": {
+      "name": "Ramadan Fasting Makeup Calculator",
+      "desc": "Track missed Ramadan fasts, plan makeup schedule, and calculate completion date",
+      "ui": {
+        "missedDays": "Missed Ramadan days",
+        "fastedDays": "Days already made up / completed",
+        "hasStarted": "Set a start date schedule",
+        "startDate": "Start date of makeup",
+        "remainingDays": "Remaining Days",
+        "completedDays": "Completed Days",
+        "estimatedEnd": "Estimated Completion Date",
+        "allDone": "Congratulations! You have completed all your makeup fasts.",
+        "motivation": "Aisha (may Allah be pleased with her) said: 'I used to have missed fasts from Ramadan, and I could only make them up in Shaban.'"
+      },
+      "faqs": [
+        {
+          "question": "Must makeup fasts be done consecutively?",
+          "answer": "No, it is permissible to make them up consecutively or on separated days according to your capacity before the next Ramadan."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "CalcTools — Smart Online Calculators",
+      "desc": "Free online calculators for health, finance, dates, unit conversion, text tools, and religious calculations with zero signup.",
+      "heading": "Smart, Fast Calculators for Every Need",
+      "subheading": "Free, accurate, and privacy-friendly web calculators designed to get your numbers done in seconds"
+    },
+    "about": {
+      "title": "About — CalcTools",
+      "heading": "About CalcTools",
+      "body": "CalcTools is a modern online utility platform providing smart, fast calculators across health, personal finance, unit conversions, dates, and religious utilities. We prioritize user privacy: all calculations and image conversions run directly in your web browser with no server data logging."
+    },
+    "privacy": {
+      "title": "Privacy Policy — CalcTools",
+      "heading": "Privacy & Data Security",
+      "body": "We respect your privacy. We do not require registration or collect personal, financial, or medical data. All computations and file compressions occur 100% locally on your device."
+    },
+    "contact": {
+      "title": "Contact Us — CalcTools",
+      "heading": "Contact Us",
+      "body": "Have feedback, suggestions, or requests for new calculators? Reach out to us via our official email."
+    }
+  },
+  "homepage": {
+    "heroTitle": "Smart Online Calculators",
+    "heroSubtitle": "Free, fast, and accurate tools for health, finance, dates, conversions, and more — right in your browser",
+    "exploreBtn": "Explore All Tools",
+    "toolsCount": "Smart Tools Available Free",
+    "searchPlaceholder": "Search any tool or calculator..."
+  },
+  "ads": {
+    "title": "Advertisement"
+  }
+}
