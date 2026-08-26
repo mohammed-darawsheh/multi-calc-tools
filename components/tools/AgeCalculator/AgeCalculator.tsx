@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { calculateAge } from './calculate';
 
@@ -10,8 +10,13 @@ export default function AgeCalculator() {
   const isAr = locale.startsWith('ar');
 
   const [birthDate, setBirthDate] = useState('2000-01-01');
+  const [mounted, setMounted] = useState(false);
 
-  const result = birthDate ? calculateAge(new Date(birthDate)) : null;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const result = (birthDate && mounted) ? calculateAge(new Date(birthDate)) : null;
 
   return (
     <div className="space-y-6">
