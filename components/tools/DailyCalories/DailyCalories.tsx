@@ -20,50 +20,55 @@ export default function DailyCalories() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('weight')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('weight')} (kg)</label>
           <input
             type="number"
+            inputMode="decimal"
             min="20"
             max="300"
+            step="any"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('height')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('height')} (cm)</label>
           <input
             type="number"
+            inputMode="decimal"
             min="50"
             max="250"
+            step="any"
             value={height}
             onChange={(e) => setHeight(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
         <div className="col-span-2 sm:col-span-1">
-          <label className="block text-sm font-medium mb-1.5">{t('age')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('age')}</label>
           <input
             type="number"
+            inputMode="numeric"
             min="10"
             max="120"
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('gender')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('gender')}</label>
           <div className="grid grid-cols-2 gap-2">
             <button
               type="button"
               onClick={() => setGender('male')}
-              className={`py-3 rounded-xl text-sm font-semibold border transition-all ${
+              className={`py-3 rounded-xl text-sm font-bold border transition-all active:scale-95 ${
                 gender === 'male'
                   ? 'bg-accent text-accent-foreground border-accent shadow-sm'
                   : 'bg-background border-border text-muted-foreground hover:text-foreground'
@@ -74,7 +79,7 @@ export default function DailyCalories() {
             <button
               type="button"
               onClick={() => setGender('female')}
-              className={`py-3 rounded-xl text-sm font-semibold border transition-all ${
+              className={`py-3 rounded-xl text-sm font-bold border transition-all active:scale-95 ${
                 gender === 'female'
                   ? 'bg-accent text-accent-foreground border-accent shadow-sm'
                   : 'bg-background border-border text-muted-foreground hover:text-foreground'
@@ -86,11 +91,11 @@ export default function DailyCalories() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('activity')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('activity')}</label>
           <select
             value={activity}
             onChange={(e) => setActivity(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background text-sm"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-sm font-medium focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           >
             {activityKeys.map((key) => (
               <option key={key} value={key}>
@@ -103,15 +108,15 @@ export default function DailyCalories() {
 
       {result && (
         <div className="space-y-4">
-          <div className="grid sm:grid-cols-2 gap-3 text-center">
-            <div className="p-5 rounded-2xl bg-card border border-border">
-              <p className="text-xs text-muted-foreground font-medium">{t('bmr')}</p>
-              <p className="text-3xl font-black text-foreground mt-1">{result.bmr}</p>
+          <div className="grid grid-cols-2 gap-3 text-center">
+            <div className="p-4 sm:p-5 rounded-2xl bg-card border border-border">
+              <p className="text-xs text-muted-foreground font-semibold uppercase">{t('bmr')}</p>
+              <p className="text-2xl sm:text-3xl font-black text-foreground mt-1">{result.bmr}</p>
               <p className="text-[11px] text-muted-foreground">{t('kcal')}</p>
             </div>
-            <div className="p-5 rounded-2xl bg-accent/10 border border-accent/20">
-              <p className="text-xs text-muted-foreground font-medium">{t('tdee')}</p>
-              <p className="text-3xl font-black text-accent mt-1">{result.tdee}</p>
+            <div className="p-4 sm:p-5 rounded-2xl bg-accent/10 border border-accent/20">
+              <p className="text-xs text-muted-foreground font-semibold uppercase">{t('tdee')}</p>
+              <p className="text-2xl sm:text-3xl font-black text-accent mt-1">{result.tdee}</p>
               <p className="text-[11px] text-muted-foreground">{t('kcal')}</p>
             </div>
           </div>

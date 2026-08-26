@@ -19,45 +19,49 @@ export default function BankInterest() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('principal')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('principal')}</label>
           <input
             type="number"
-            min="100"
+            inputMode="decimal"
+            min="10"
+            step="any"
             value={principal}
             onChange={(e) => setPrincipal(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('rate')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('rate')} (%)</label>
           <input
             type="number"
+            inputMode="decimal"
             min="0.1"
             step="0.1"
             value={rate}
             onChange={(e) => setRate(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('years')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('years')}</label>
           <input
             type="number"
+            inputMode="numeric"
             min="1"
             max="50"
             value={years}
             onChange={(e) => setYears(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('frequency')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('frequency')}</label>
           <select
             value={frequency}
             onChange={(e) => setFrequency(e.target.value as any)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-sm font-medium focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           >
             <option value="monthly">{t('monthly')}</option>
             <option value="quarterly">{t('quarterly')}</option>
@@ -68,8 +72,8 @@ export default function BankInterest() {
 
       {result && (
         <div className="space-y-4">
-          <div className="p-6 rounded-2xl bg-accent/10 border border-accent/20 text-center space-y-1">
-            <p className="text-xs text-muted-foreground font-medium uppercase">{t('totalAmount')}</p>
+          <div className="p-5 sm:p-6 rounded-2xl bg-accent/10 border border-accent/20 text-center space-y-1">
+            <p className="text-xs text-muted-foreground font-semibold uppercase">{t('totalAmount')}</p>
             <p className="text-3xl sm:text-4xl font-black text-accent">
               {result.totalAmount.toLocaleString()}
             </p>
@@ -92,17 +96,17 @@ export default function BankInterest() {
               <table className="w-full text-xs sm:text-sm">
                 <thead className="sticky top-0 bg-muted border-b border-border">
                   <tr>
-                    <th className="p-3 text-start">{t('year')}</th>
-                    <th className="p-3 text-end">{t('interestEarned')}</th>
-                    <th className="p-3 text-end">{t('endBalance')}</th>
+                    <th className="p-2.5 text-start">{t('year')}</th>
+                    <th className="p-2.5 text-end">{t('interestEarned')}</th>
+                    <th className="p-2.5 text-end">{t('endBalance')}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
                   {result.yearlyBreakdown.map((row) => (
                     <tr key={row.year} className="hover:bg-muted/30">
-                      <td className="p-2.5 text-start font-semibold">{t('year')} {row.year}</td>
-                      <td className="p-2.5 text-end text-emerald-600 dark:text-emerald-400">+{row.interest.toLocaleString()}</td>
-                      <td className="p-2.5 text-end font-bold">{row.amount.toLocaleString()}</td>
+                      <td className="p-2 text-start font-semibold">{t('year')} {row.year}</td>
+                      <td className="p-2 text-end text-emerald-600 dark:text-emerald-400">+{row.interest.toLocaleString()}</td>
+                      <td className="p-2 text-end font-bold">{row.amount.toLocaleString()}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -51,24 +51,25 @@ export default function CurrencyConverter() {
   return (
     <div className="space-y-6">
       <div>
-        <label className="block text-sm font-medium mb-1.5">{t('amount')}</label>
+        <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('amount')}</label>
         <input
           type="number"
+          inputMode="decimal"
           min="0"
           step="any"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          className="w-full p-3.5 rounded-xl border border-border bg-background text-lg font-semibold"
+          className="w-full p-3.5 sm:p-4 rounded-xl border border-border bg-background text-base sm:text-lg font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
         />
       </div>
 
-      <div className="grid grid-cols-[1fr,auto,1fr] gap-2 sm:gap-4 items-end">
+      <div className="grid grid-cols-[1fr,auto,1fr] gap-2 sm:gap-3 items-end">
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('from')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('from')}</label>
           <select
             value={from}
             onChange={(e) => setFrom(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background font-semibold"
+            className="w-full p-3 sm:p-3.5 rounded-xl border border-border bg-background text-sm sm:text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           >
             {currencies.map((c) => (
               <option key={c} value={c}>{c}</option>
@@ -79,18 +80,18 @@ export default function CurrencyConverter() {
         <button
           type="button"
           onClick={swapCurrencies}
-          className="p-3 rounded-xl border border-border hover:bg-muted text-accent font-bold transition-all active:scale-95"
+          className="p-3 sm:p-3.5 rounded-xl border border-border hover:bg-muted text-accent font-black text-lg transition-all active:scale-90"
           title="Swap"
         >
           ⇄
         </button>
 
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('to')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('to')}</label>
           <select
             value={to}
             onChange={(e) => setTo(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background font-semibold"
+            className="w-full p-3 sm:p-3.5 rounded-xl border border-border bg-background text-sm sm:text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           >
             {currencies.map((c) => (
               <option key={c} value={c}>{c}</option>
@@ -113,13 +114,13 @@ export default function CurrencyConverter() {
 
       {result && !loading && (
         <div className="space-y-3">
-          <div className="p-6 rounded-2xl bg-accent/10 border border-accent/20 text-center space-y-1">
-            <p className="text-xs text-muted-foreground font-medium uppercase">{t('rate')}</p>
+          <div className="p-5 sm:p-6 rounded-2xl bg-accent/10 border border-accent/20 text-center space-y-1">
+            <p className="text-xs text-muted-foreground font-semibold uppercase">{t('rate')}</p>
             <p className="text-3xl sm:text-4xl font-black text-accent">
               {result.converted.toLocaleString()} <span className="text-lg font-bold">{to}</span>
             </p>
           </div>
-          <div className="p-3 rounded-xl border border-border bg-card text-center text-xs text-muted-foreground">
+          <div className="p-3 rounded-xl border border-border bg-card text-center text-xs text-muted-foreground font-medium">
             1 {from} = {rate?.toFixed(4)} {to}
           </div>
         </div>

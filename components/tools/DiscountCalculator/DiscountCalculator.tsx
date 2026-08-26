@@ -16,51 +16,53 @@ export default function DiscountCalculator() {
 
   return (
     <div className="space-y-6">
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('originalPrice')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('originalPrice')}</label>
           <input
             type="number"
+            inputMode="decimal"
             min="0"
             step="any"
             value={originalPrice}
             onChange={(e) => setOriginalPrice(e.target.value)}
-            className="w-full p-3.5 rounded-xl border border-border bg-background text-lg font-semibold"
+            className="w-full p-3.5 sm:p-4 rounded-xl border border-border bg-background text-base sm:text-lg font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('discountPercent')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('discountPercent')} (%)</label>
           <input
             type="number"
+            inputMode="decimal"
             min="0"
             max="100"
-            step="1"
+            step="any"
             value={discountPercent}
             onChange={(e) => setDiscountPercent(e.target.value)}
-            className="w-full p-3.5 rounded-xl border border-border bg-background text-lg font-semibold"
+            className="w-full p-3.5 sm:p-4 rounded-xl border border-border bg-background text-base sm:text-lg font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
       </div>
 
       {result && (
         <div className="space-y-4">
-          <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center space-y-1">
-            <p className="text-xs text-muted-foreground font-medium uppercase">{t('finalPrice')}</p>
-            <p className="text-4xl sm:text-5xl font-black text-emerald-600 dark:text-emerald-400">
+          <div className="p-5 sm:p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center space-y-1">
+            <p className="text-xs text-muted-foreground font-semibold uppercase">{t('finalPrice')}</p>
+            <p className="text-3xl sm:text-5xl font-black text-emerald-600 dark:text-emerald-400">
               {result.finalPrice.toLocaleString()}
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-3 text-center">
-            <div className="p-4 rounded-xl border border-border bg-card">
+            <div className="p-3.5 sm:p-4 rounded-xl border border-border bg-card">
               <p className="text-xs text-muted-foreground mb-1">{t('savings')}</p>
-              <p className="text-2xl font-bold text-accent">
+              <p className="text-xl sm:text-2xl font-bold text-accent">
                 {result.savings.toLocaleString()}
               </p>
             </div>
-            <div className="p-4 rounded-xl border border-border bg-card">
+            <div className="p-3.5 sm:p-4 rounded-xl border border-border bg-card">
               <p className="text-xs text-muted-foreground mb-1">{t('discountPercent')}</p>
-              <p className="text-2xl font-bold text-foreground">
+              <p className="text-xl sm:text-2xl font-bold text-foreground">
                 {result.discountPercent}%
               </p>
             </div>

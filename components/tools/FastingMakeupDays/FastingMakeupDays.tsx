@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { calculateFastingMakeup } from './calculate';
 
@@ -10,119 +10,80 @@ export default function FastingMakeupDays() {
 
   const [missedDays, setMissedDays] = useState('10');
   const [fastedDays, setFastedDays] = useState('3');
-  const [hasStarted, setHasStarted] = useState(false);
-  const [startDate, setStartDate] = useState('');
 
-  const missedNum = parseInt(missedDays) || 0;
-  const fastedNum = parseInt(fastedDays) || 0;
+  const missed = parseInt(missedDays) || 0;
+  const fasted = parseInt(fastedDays) || 0;
+  const result = calculateFastingMakeup({
+    missedDays: missed,
+    fastedDays: fasted,
+    hasStartedMakeup: true,
+    startDate: new Date(),
+    locale,
+  });
 
-  const result = useMemo(() => {
-    if (missedNum <= 0) return null;
-
-    return calculateFastingMakeup({
-      missedDays: missedNum,
-      fastedDays: fastedNum,
-      hasStartedMakeup: hasStarted,
-      startDate: startDate ? new Date(startDate) : null,
-      locale,
-    });
-  }, [missedNum, fastedNum, hasStarted, startDate, locale]);
-
-  const progressPercent = missedNum > 0 ? Math.min(100, Math.round((fastedNum / missedNum) * 100)) : 0;
+  const progressPercent = missed > 0 ? Math.min(100, Math.round((fasted / missed) * 100)) : 0;
 
   return (
     <div className="space-y-6">
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('missedDays')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('missedDays')}</label>
           <input
             type="number"
-            min="1"
-            max="300"
+            inputMode="numeric"
+            min="0"
+            max="365"
             value={missedDays}
             onChange={(e) => setMissedDays(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('fastedDays')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('fastedDays')}</label>
           <input
             type="number"
+            inputMode="numeric"
             min="0"
-            max={missedDays}
+            max={missed}
             value={fastedDays}
             onChange={(e) => setFastedDays(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
       </div>
 
-      <div className="p-4 rounded-xl border border-border bg-card space-y-3">
-        <label className="flex items-center gap-3 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={hasStarted}
-            onChange={(e) => setHasStarted(e.target.checked)}
-            className="w-4 h-4 rounded accent-accent"
-          />
-          <span className="text-sm font-medium">{t('hasStarted')}</span>
-        </label>
-
-        {hasStarted && (
-          <div className="pt-2">
-            <label className="block text-xs text-muted-foreground mb-1">{t('startDate')}</label>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              className="w-full p-2.5 rounded-lg border border-border bg-background text-sm"
+      <div className="space-y-4">
+        {/* Progress Bar */}
+        <div className="space-y-2">
+          <div className="flex justify-between text-xs font-bold text-muted-foreground">
+            <span>{t('progress')}: {progressPercent}%</span>
+            <span>{result.makeupCompleted} / {missed} {t('days')}</span>
+          </div>
+          <div className="h-3 rounded-full bg-muted overflow-hidden">
+            <div
+              className="h-full rounded-full bg-accent transition-all duration-300"
+              style={{ width: `${progressPercent}%` }}
             />
+          </div>
+        </div>
+
+        <div className="p-5 sm:p-6 rounded-2xl bg-accent/10 border border-accent/20 text-center space-y-1">
+          <p className="text-xs text-muted-foreground font-semibold uppercase">{t('remainingDays')}</p>
+          <p className="text-4xl sm:text-5xl font-black text-accent">
+            {result.remainingDays}
+          </p>
+          <p className="text-xs text-muted-foreground pt-1">
+            {result.remainingDays === 0 ? '🎉 ' + t('completed') : t('days')}
+          </p>
+        </div>
+
+        {result.remainingDays > 0 && (
+          <div className="p-4 rounded-xl border border-border bg-card text-center text-xs sm:text-sm text-muted-foreground space-y-1">
+            <p>{t('recommendedTarget')}:</p>
+            <p className="font-bold text-foreground">{result.estimatedEndDate}</p>
           </div>
         )}
       </div>
-
-      {result && (
-        <div className="space-y-4">
-          {/* Progress Bar */}
-          <div className="p-5 rounded-2xl border border-border bg-card space-y-3">
-            <div className="flex justify-between items-center text-sm font-medium">
-              <span>نسبة الإنجاز (Progress)</span>
-              <span className="font-bold text-accent">{progressPercent}%</span>
-            </div>
-            <div className="h-3 w-full bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full bg-accent transition-all duration-500 rounded-full"
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
-          </div>
-
-          {result.isAllCompleted ? (
-            <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-center font-bold">
-              🎉 {t('allDone')}
-            </div>
-          ) : (
-            <div className="grid sm:grid-cols-3 gap-3 text-center">
-              <div className="p-4 rounded-xl border border-border bg-card">
-                <p className="text-xs text-muted-foreground mb-1">{t('completedDays')}</p>
-                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{result.makeupCompleted}</p>
-              </div>
-              <div className="p-4 rounded-xl border border-border bg-card">
-                <p className="text-xs text-muted-foreground mb-1">{t('remainingDays')}</p>
-                <p className="text-2xl font-bold text-accent">{result.remainingDays}</p>
-              </div>
-              <div className="p-4 rounded-xl border border-border bg-card sm:col-span-1">
-                <p className="text-xs text-muted-foreground mb-1">{t('estimatedEnd')}</p>
-                <p className="text-sm font-bold text-foreground mt-1">{result.estimatedEndDate}</p>
-              </div>
-            </div>
-          )}
-
-          <div className="p-4 rounded-xl bg-muted/60 text-xs text-muted-foreground leading-relaxed italic text-center">
-            {t('motivation')}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

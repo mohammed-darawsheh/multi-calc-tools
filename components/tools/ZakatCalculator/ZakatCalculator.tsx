@@ -7,20 +7,19 @@ import { calculateZakat, DEFAULT_GOLD_PRICE, DEFAULT_SILVER_PRICE } from './calc
 export default function ZakatCalculator() {
   const t = useTranslations('tools.zakatCalculator.ui');
 
-  const [currencySymbol, setCurrencySymbol] = useState('ر.س');
-  const [goldPrice, setGoldPrice] = useState(String(DEFAULT_GOLD_PRICE * 3.75)); // Default in SAR (~320)
-  const [silverPrice, setSilverPrice] = useState(String(DEFAULT_SILVER_PRICE * 3.75));
-  const [cash, setCash] = useState('50000');
-  const [gold, setGold] = useState('0');
-  const [silver, setSilver] = useState('0');
-  const [business, setBusiness] = useState('0');
+  const [cash, setCash] = useState('10000');
+  const [goldGrams, setGoldGrams] = useState('0');
+  const [silverGrams, setSilverGrams] = useState('0');
+  const [businessValue, setBusinessValue] = useState('0');
   const [debts, setDebts] = useState('0');
+  const [goldPrice, setGoldPrice] = useState(String(DEFAULT_GOLD_PRICE));
+  const [silverPrice, setSilverPrice] = useState(String(DEFAULT_SILVER_PRICE));
 
   const result = calculateZakat({
     cash: parseFloat(cash) || 0,
-    goldGrams: parseFloat(gold) || 0,
-    silverGrams: parseFloat(silver) || 0,
-    businessValue: parseFloat(business) || 0,
+    goldGrams: parseFloat(goldGrams) || 0,
+    silverGrams: parseFloat(silverGrams) || 0,
+    businessValue: parseFloat(businessValue) || 0,
     debts: parseFloat(debts) || 0,
     goldPricePerGram: parseFloat(goldPrice) || DEFAULT_GOLD_PRICE,
     silverPricePerGram: parseFloat(silverPrice) || DEFAULT_SILVER_PRICE,
@@ -28,128 +27,132 @@ export default function ZakatCalculator() {
 
   return (
     <div className="space-y-6">
-      {/* Price Configuration */}
-      <div className="p-4 rounded-xl border border-border bg-card/60 space-y-3">
-        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">إعدادات العملة وأسعار الذهب والفضة</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div>
-            <label className="block text-xs text-muted-foreground mb-1">{t('currency')}</label>
-            <input
-              type="text"
-              value={currencySymbol}
-              onChange={(e) => setCurrencySymbol(e.target.value)}
-              className="w-full p-2.5 rounded-lg border border-border bg-background text-sm font-medium"
-              placeholder="SAR / USD / EGP"
-            />
-          </div>
-          <div>
-            <label className="block text-xs text-muted-foreground mb-1">{t('goldPrice')}</label>
-            <input
-              type="number"
-              min="0"
-              value={goldPrice}
-              onChange={(e) => setGoldPrice(e.target.value)}
-              className="w-full p-2.5 rounded-lg border border-border bg-background text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-xs text-muted-foreground mb-1">{t('silverPrice')}</label>
-            <input
-              type="number"
-              min="0"
-              value={silverPrice}
-              onChange={(e) => setSilverPrice(e.target.value)}
-              className="w-full p-2.5 rounded-lg border border-border bg-background text-sm"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Assets & Liabilities */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {/* Assets Inputs */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('cash')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('cash')}</label>
           <input
             type="number"
+            inputMode="decimal"
             min="0"
+            step="any"
             value={cash}
             onChange={(e) => setCash(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
+
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('goldGrams')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('businessValue')}</label>
           <input
             type="number"
+            inputMode="decimal"
             min="0"
-            value={gold}
-            onChange={(e) => setGold(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            step="any"
+            value={businessValue}
+            onChange={(e) => setBusinessValue(e.target.value)}
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
+
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('silverGrams')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('goldGrams')} (g)</label>
           <input
             type="number"
+            inputMode="decimal"
             min="0"
-            value={silver}
-            onChange={(e) => setSilver(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            step="any"
+            value={goldGrams}
+            onChange={(e) => setGoldGrams(e.target.value)}
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
+
         <div>
-          <label className="block text-sm font-medium mb-1.5">{t('business')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5">{t('silverGrams')} (g)</label>
           <input
             type="number"
+            inputMode="decimal"
             min="0"
-            value={business}
-            onChange={(e) => setBusiness(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            step="any"
+            value={silverGrams}
+            onChange={(e) => setSilverGrams(e.target.value)}
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none"
           />
         </div>
+
         <div className="sm:col-span-2">
-          <label className="block text-sm font-medium mb-1.5">{t('debts')}</label>
+          <label className="block text-xs sm:text-sm font-semibold mb-1.5 text-red-500">{t('debts')}</label>
           <input
             type="number"
+            inputMode="decimal"
             min="0"
+            step="any"
             value={debts}
             onChange={(e) => setDebts(e.target.value)}
-            className="w-full p-3 rounded-xl border border-border bg-background"
+            className="w-full p-3.5 rounded-xl border border-border bg-background text-base font-bold text-red-500 focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none"
           />
         </div>
       </div>
 
-      {/* Results */}
+      {/* Gold/Silver Price Settings (collapsible or neat card) */}
+      <details className="group border border-border rounded-xl p-3.5 bg-muted/40 text-xs">
+        <summary className="cursor-pointer font-bold flex items-center justify-between text-muted-foreground hover:text-foreground">
+          <span>⚙️ {t('customPrices')}</span>
+          <span className="group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 pt-3 border-t border-border">
+          <div>
+            <label className="block font-medium mb-1">{t('goldPrice')}</label>
+            <input
+              type="number"
+              inputMode="decimal"
+              step="any"
+              value={goldPrice}
+              onChange={(e) => setGoldPrice(e.target.value)}
+              className="w-full p-2.5 rounded-lg border border-border bg-background font-bold text-sm"
+            />
+          </div>
+          <div>
+            <label className="block font-medium mb-1">{t('silverPrice')}</label>
+            <input
+              type="number"
+              inputMode="decimal"
+              step="any"
+              value={silverPrice}
+              onChange={(e) => setSilverPrice(e.target.value)}
+              className="w-full p-2.5 rounded-lg border border-border bg-background font-bold text-sm"
+            />
+          </div>
+        </div>
+      </details>
+
+      {/* Result Display */}
       <div className="space-y-4">
-        <div className="p-6 rounded-2xl bg-accent/10 border border-accent/20 text-center space-y-1">
-          <p className="text-sm font-medium text-muted-foreground">{t('zakatDue')}</p>
-          <p className="text-4xl font-black text-accent">
-            {result.zakatDue.toLocaleString()} <span className="text-lg font-bold">{currencySymbol}</span>
+        <div
+          className={`p-5 sm:p-6 rounded-2xl border text-center space-y-1.5 transition-colors ${
+            result.eligible
+              ? 'bg-emerald-500/10 border-emerald-500/30'
+              : 'bg-muted/60 border-border'
+          }`}
+        >
+          <p className="text-xs text-muted-foreground font-semibold uppercase">{t('zakatDue')}</p>
+          <p className={`text-3xl sm:text-5xl font-black ${result.eligible ? 'text-emerald-600 dark:text-emerald-400' : 'text-muted-foreground'}`}>
+            {result.zakatDue.toLocaleString()}
+          </p>
+          <p className="text-xs font-bold text-muted-foreground">
+            {result.eligible ? `✓ ${t('eligible')}` : `✕ ${t('notEligible')}`}
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-3">
-          <div className="p-4 rounded-xl border border-border bg-card flex justify-between items-center">
-            <span className="text-sm text-muted-foreground">{t('totalZakatable')}</span>
-            <span className="font-bold">{result.totalZakatable.toLocaleString()} {currencySymbol}</span>
+        <div className="grid grid-cols-2 gap-3 text-center">
+          <div className="p-3.5 rounded-xl border border-border bg-card">
+            <p className="text-xs text-muted-foreground mb-1">{t('totalZakatable')}</p>
+            <p className="text-base sm:text-lg font-bold">{result.totalZakatable.toLocaleString()}</p>
           </div>
-          <div className="p-4 rounded-xl border border-border bg-card flex justify-between items-center">
-            <span className="text-sm text-muted-foreground">{t('eligible')}</span>
-            <span className={`font-bold text-sm px-2.5 py-1 rounded-full ${
-              result.eligible
-                ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
-                : 'bg-red-500/10 text-red-500'
-            }`}>
-              {result.eligible ? t('yes') : t('no')}
-            </span>
-          </div>
-          <div className="p-4 rounded-xl border border-border bg-card flex justify-between items-center">
-            <span className="text-sm text-muted-foreground">{t('nisabGold')}</span>
-            <span className="font-semibold">{result.nisabGold.toLocaleString()} {currencySymbol}</span>
-          </div>
-          <div className="p-4 rounded-xl border border-border bg-card flex justify-between items-center">
-            <span className="text-sm text-muted-foreground">{t('nisabSilver')}</span>
-            <span className="font-semibold">{result.nisabSilver.toLocaleString()} {currencySymbol}</span>
+          <div className="p-3.5 rounded-xl border border-border bg-card">
+            <p className="text-xs text-muted-foreground mb-1">{t('nisabGold')}</p>
+            <p className="text-base sm:text-lg font-bold">{result.nisabThreshold.toLocaleString()}</p>
           </div>
         </div>
       </div>
