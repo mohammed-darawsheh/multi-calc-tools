@@ -22,7 +22,7 @@ export default function ToolPage({ i18nKey, slug, children }: ToolPageProps) {
   return (
     <>
       <Header />
-      <ToolSchema name={toolName} description={toolDesc} url={`https://calctools.io/tools/${slug}`} />
+      <ToolSchema name={toolName} description={toolDesc} url={`https://ehsbha.online/tools/${slug}`} />
       <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 md:py-12">
         <div className="text-center mb-8 space-y-2">
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">{toolName}</h1>

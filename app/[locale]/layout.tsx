@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: isAr
       ? 'مجموعة شاملة من الحاسبات اليومية الذكية للصحة، والمالية، والتواريخ، والوحدات، والإسلاميات. مجانية وبدون تسجيل.'
       : 'Comprehensive collection of smart online calculators for health, finance, dates, unit converters, and utilities.',
-    metadataBase: new URL('https://calctools.io'),
+    metadataBase: new URL('https://ehsbha.online'),
     alternates: {
       canonical: `/${locale}`,
       languages: {

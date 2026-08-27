@@ -23,7 +23,7 @@ export async function generateToolMetadata(
     openGraph: {
       title: name,
       description: desc,
-      url: `https://calctools.io/${locale}/tools/${slug}`,
+      url: `https://ehsbha.online/${locale}/tools/${slug}`,
       type: 'website',
     },
   };
