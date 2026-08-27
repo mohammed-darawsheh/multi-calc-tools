@@ -10,9 +10,9 @@ export const siteConfig = {
   domain: 'calctools.io',
   social: {
     twitter: '@calctools',
-    github: 'calctools/calctools',
+    github: 'mohammed-darawsheh/multi-calc-tools',
   },
-  email: 'contact@calctools.io',
+  email: 'mmmaaahhh3675@gmail.com',
   localeLabels: {
     ar: 'العربية',
     en: 'English',
