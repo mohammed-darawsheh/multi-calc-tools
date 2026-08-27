@@ -49,6 +49,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       siteName: isAr ? 'أدوات الحاسبة' : 'CalcTools',
       locale: isAr ? 'ar_AR' : 'en_US',
     },
+    other: {
+      'google-adsense-account': 'ca-pub-8815310111970503',
+    },
   };
 }
 
