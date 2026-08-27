@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/routing';
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
+import Script from 'next/script';
 import type { Metadata } from "next";
 import "@/app/globals.css";
 
@@ -67,6 +68,15 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Google AdSense Integration */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8815310111970503"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <ThemeProvider>
           <NextIntlClientProvider>
