@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
 import Script from 'next/script';
 import type { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/next';
 import "@/app/globals.css";
 
 const geistSans = Geist({
@@ -86,6 +87,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
